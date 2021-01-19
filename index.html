@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Water Sort Puzzle Solver</title>
+    <style type="text/css">
+      canvas {
+        border: 1px solid black;
+      }
+      .disable-dbl-tap-zoom {
+        touch-action: manipulation;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container limit-width p-3 mx-0">
+      <p>
+      A simple solver for the water sort and ball sort puzzle games.
+      Tap on a color to swap and recreate any game state.  Then solve and look
+      at the step-by-step solution!
+      </p>
+      <p></p>
+      <canvas id="canvas" class="disable-dbl-tap-zoom"></canvas>
+      <p></p>
+      <button type="button" class="btn btn-success btn-sm disable-dbl-tap-zoom" id="solve" disabled>
+        <span class="fa fa-check"></span> Solve
+      </button>
+      <button type="button" class="btn btn-primary btn-sm disable-dbl-tap-zoom" id="back" disabled>
+        <span class="fa fa-arrow-left"></span> Back
+      </button>
+      <button type="button" class="btn btn-primary btn-sm disable-dbl-tap-zoom" id="step" disabled>
+        <span class="fa fa-arrow-right"></span> Step
+      </button>
+      <button type="button" class="btn btn-warning btn-sm disable-dbl-tap-zoom" id="reset">
+        <span class="fa fa-undo"></span> Reset
+      </button>
+      <span id="counter"></span>
+      <p></p>
+      <form>
+      <div class="form-group">
+        <label for="vials">Change # vials:</label>
+        <select class="form-control d-inline-block" id="vials" style="width:auto;">
+          <option value=14>14</option>
+          <option value=11>11</option>
+          <option value=9>9</option>
+        </select>
+      </div>
+      </form>
+    </main>
+
+    <script src="solve.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
