@@ -287,6 +287,8 @@ class GameManager {
       const index = 1 + this.solutionIndex;
       const numSolutionSteps = this.solutionArray.length.toString();
       this.counter.innerHTML = ` ${index}/${numSolutionSteps}`;
+    } else {
+      this.counter.innerHTML = '';
     }
   }
 
