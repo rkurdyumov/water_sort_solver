@@ -103,11 +103,10 @@ class GameState {
   static solve(initial_state) {
     // TODO: Implement a more optimal algorithm than depth-first-search.
     const stack = [initial_state];
-    const visited = new Set();
+    const visited = new Set([initial_state]);
     const parent = new Map();
     while (stack.length > 0) {
       let current_state = stack.pop();
-      visited.add(current_state.getKey());
       if (current_state.solved()) {
         let current_key = current_state.getKey();
         const steps = [GameState.keyToStacks(current_key)];

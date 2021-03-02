@@ -94,16 +94,12 @@ class GameState():
     def __str__(self):
         return "|".join(str(stack).ljust(4) for stack in self._stacks)
 
-state = GameState(["FHDB", "CEEE", "GDHD", "AGBF", "FGHA", "AGIE", "BCHD",
-                   "CIFI", "CABI", "", ""])
-
 def solve(initial_state):
     stack = [initial_state]
-    visited = set()
+    visited = {initial_state}
     parent = {}
     while stack:
         current_state = stack.pop()
-        visited.add(current_state)
         if current_state.solved():
             steps = [current_state]
             while current_state != initial_state:
@@ -120,6 +116,9 @@ def solve(initial_state):
                 visited.add(new_state)
     return None
 
+state = GameState(["FHDB", "CEEE", "GDHD", "AGBF", "FGHA", "AGIE", "BCHD",
+                   "CIFI", "CABI", "", ""])
+
 start = time.time()
 solution = solve(state)
 print("--- %s seconds ---" % (time.time() - start))
@@ -128,7 +127,7 @@ for state in solution:
 
 '''
 ~/water_sort_solver/ (main) $ python solve.py
---- 0.04584932327270508 seconds ---
+--- 0.08284831047058105 seconds ---
 FHDB|CEEE|GDHD|AGBF|FGHA|AGIE|BCHD|CIFI|CABI|    |
 FHDB|CEEE|GDHD|AGBF|FGHA|AGIE|BCHD|CIFI|CAB |    |I
 FHDB|CEEE|GDHD|AGBF|FGHA|AGIE|BCHD|CIFI|CA  |B   |I
